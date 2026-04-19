@@ -17,7 +17,8 @@ import java.io.IOException;
 public class VisorDeTXTs {
     public void mostrarTxt(String ruta) throws IOException {
         File elArchivo = new File(ruta);
-        BufferedReader br = new BufferedReader(new FileReader(elArchivo));
-        System.out.println(br.readLine());
+        try (BufferedReader br = new BufferedReader(new FileReader(elArchivo))) {
+            System.out.println(br.readLine());
+        }
     }
 }
